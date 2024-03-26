@@ -1,3 +1,4 @@
+import asyncio
 from helper_function import get_completion
 
 # Multi message prompt
@@ -168,4 +169,8 @@ Actual solution:
 solutionise_prompt = [{"role": "user", "content": solutionise_content}]
 
 # Call with chosen prompt
-print(get_completion(solutionise_prompt))
+async def get_response():
+    response = await get_completion(solutionise_prompt)
+    print(response)
+
+asyncio.run(get_response())

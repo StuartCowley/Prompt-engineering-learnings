@@ -1,3 +1,4 @@
+import asyncio
 from helper_function import get_completion
 
 # Example task: Generate a marketing product description from a product fact sheet
@@ -92,4 +93,8 @@ initial_prompt = [{"role": "user", "content": initial_content}]
 refined_prompt = [{"role": "user", "content": refined_content}]
 
 # Call with chosen prompt
-print(get_completion(refined_prompt))
+async def get_response():
+    response = await get_completion(refined_prompt)
+    print(response)
+
+asyncio.run(get_response())
